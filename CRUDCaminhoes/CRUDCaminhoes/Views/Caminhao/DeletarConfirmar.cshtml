@@ -1,0 +1,33 @@
+﻿@model CaminhaoModel
+
+@{
+    ViewData["Title"] = "Listagem de Contatos";
+}
+
+<div class="text-center">
+    <h3>Deseja apagar este registro?</h3>
+</div>
+
+
+<form asp-controller="Caminhao" asp-action="Alterar" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <div class="form-group">
+        <label for="Nome">Nome</label>
+        <input type="text" asp-for="Nome" class="form-control" readonly>
+    </div>
+
+    <div class="form-group">
+        <label for="Descricao">Descrição</label>
+        <input type="text" asp-for="Descricao" class="form-control" readonly>
+    </div>
+
+    <div class="form-group">
+        <label for="DataDeCriacao">Data de Criação</label>
+        <input type="datetime" asp-for="DataDeCriacao" class="form-control" readonly>
+    </div>
+
+    <a class="btn btn-outline-primary btn-block" role="button" asp-controller="Caminhao" asp-action="Index">Cancelar</a>
+    <a class="btn btn-outline-danger btn-block" role="button" asp-controller="Caminhao" asp-action="Deletar" asp-route-id="@Model.Id">Confirmar</a>
+</form>
+
